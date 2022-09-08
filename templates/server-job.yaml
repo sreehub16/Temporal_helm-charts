@@ -44,10 +44,10 @@ spec:
         - name: check-cassandra-service
           image: busybox
           command: ['sh', '-c', 'until nslookup {{ include "cassandra.host" $ }}; do echo waiting for cassandra service; sleep 1; done;']
-        - name: check-cassandra
-          image: "{{ .Values.cassandra.image.repo }}:{{ .Values.cassandra.image.tag }}"
-          imagePullPolicy: {{ .Values.cassandra.image.pullPolicy }}
-          command: ['sh', '-c', 'until cqlsh {{ include "cassandra.host" $ }} {{ .Values.cassandra.config.ports.cql }} -e "SHOW VERSION"; do echo waiting for cassandra to start; sleep 1; done;']
+        # - name: check-cassandra
+        #   image: "{{ .Values.cassandra.image.repo }}:{{ .Values.cassandra.image.tag }}"
+        #   imagePullPolicy: {{ .Values.cassandra.image.pullPolicy }}
+        #   command: ['sh', '-c', 'until cqlsh {{ include "cassandra.host" $ }} {{ .Values.cassandra.config.ports.cql }} -e "SHOW VERSION"; do echo waiting for cassandra to start; sleep 1; done;']
         {{- end }}
         {{- range $store := (list "default" "visibility") }}
         {{- $storeConfig := index $.Values.server.config.persistence $store }}
@@ -177,10 +177,10 @@ spec:
         - name: check-cassandra-service
           image: busybox
           command: ['sh', '-c', 'until nslookup {{ include "cassandra.host" $ }}; do echo waiting for cassandra service; sleep 1; done;']
-        - name: check-cassandra
-          image: "{{ .Values.cassandra.image.repo }}:{{ .Values.cassandra.image.tag }}"
-          imagePullPolicy: {{ .Values.cassandra.image.pullPolicy }}
-          command: ['sh', '-c', 'until cqlsh {{ include "cassandra.host" $ }} {{ .Values.cassandra.config.ports.cql }} -e "SHOW VERSION"; do echo waiting for cassandra to start; sleep 1; done;']
+        # - name: check-cassandra
+        #   image: "{{ .Values.cassandra.image.repo }}:{{ .Values.cassandra.image.tag }}"
+        #   imagePullPolicy: {{ .Values.cassandra.image.pullPolicy }}
+        #   command: ['sh', '-c', 'until cqlsh {{ include "cassandra.host" $ }} {{ .Values.cassandra.config.ports.cql }} -e "SHOW VERSION"; do echo waiting for cassandra to start; sleep 1; done;']
         {{- else }}
           []
         {{- end }}
