@@ -30,7 +30,7 @@ server:
     # Annotate pods directly with Prometheus annotations.
     # Use this if you installed Prometheus from a Helm chart.
     annotations:
-      enabled: true
+      enabled: false
     # Enable Prometheus ServiceMonitor
     # Use this if you installed the Prometheus Operator (https://github.com/coreos/prometheus-operator).
     serviceMonitor:
@@ -59,8 +59,8 @@ server:
       #   sourceLabels:
       #   - __name__
       #   targetLabel: __name__
-    prometheus:
-      timerType: histogram
+    prometheus: {}
+      # timerType: histogram
   podAnnotations: {}
   podLabels: {}
   resources:
@@ -321,7 +321,7 @@ schema:
     backoffLimit: 100
 
 elasticsearch:
-  enabled: true
+  enabled: false
   replicas: 3
   persistence:
     enabled: false
@@ -336,12 +336,12 @@ elasticsearch:
   visibilityIndex: "temporal_visibility_v1_dev"
 
 prometheus:
-  enabled: true
+  enabled: false
   nodeExporter:
     enabled: false
 
 grafana:
-  enabled: true
+  enabled: false
   replicas: 1
   testFramework:
     enabled: false
