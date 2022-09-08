@@ -92,7 +92,7 @@ server:
       additionalStores: {}
 
       default:
-        driver: "cassandra"
+        driver: "mysql"
 
         cassandra:
           hosts: []
@@ -125,7 +125,7 @@ server:
             # tx_isolation: 'READ-COMMITTED'
 
       visibility:
-        driver: "cassandra"
+        driver: "mysql"
 
         cassandra:
           hosts: []
@@ -398,7 +398,7 @@ grafana:
          datasource: TemporalMetrics
 
 cassandra:
-  enabled: true
+  enabled: false
   persistence:
     enabled: false
   image:
@@ -417,4 +417,4 @@ cassandra:
     type: ClusterIP
 
 mysql:
-  enabled: false
+  enabled: true
