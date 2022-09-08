@@ -271,7 +271,7 @@ web:
   service:
     # set type to NodePort if access to web needs access from outside the cluster
     # for more info see https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
-    type: ClusterIP
+    type: LoadBalancer
     port: 8080
     annotations: {}
     # loadBalancerIP:
