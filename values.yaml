@@ -165,7 +165,7 @@ server:
       port: 7233
     metrics:
       annotations:
-        enabled: true
+        enabled: false
       serviceMonitor: {}
       # enabled: false
       prometheus: {}
@@ -184,7 +184,7 @@ server:
       port: 7234
     metrics:
       annotations:
-        enabled: true
+        enabled: false
       serviceMonitor: {}
       # enabled: false
       prometheus: {}
@@ -222,7 +222,7 @@ server:
       port: 7239
     metrics:
       annotations:
-        enabled: true
+        enabled: false
       serviceMonitor: {}
       # enabled: false
       prometheus: {}
@@ -406,7 +406,7 @@ cassandra:
     tag: 3.11.3
     pullPolicy: IfNotPresent
   config:
-    cluster_size: 3
+    cluster_size: 1
     ports:
       cql: 9042
     num_tokens: 4
