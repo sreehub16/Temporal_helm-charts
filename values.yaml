@@ -92,7 +92,7 @@ server:
       additionalStores: {}
 
       default:
-        driver: "cassandra"
+        driver: "sql"
 
         cassandra:
           hosts: []
@@ -112,11 +112,11 @@ server:
 
         sql:
           driver: "mysql"
-          host: "mysql"
+          host: "temporalmysql.mysql.database.azure.com"
           port: 3306
           database: "temporal"
-          user: "temporal"
-          password: "temporal"
+          user: "test"
+          password: "Sree@1628888"
           existingSecret: ""
           secretName: ""
           maxConns: 20
@@ -125,7 +125,7 @@ server:
             # tx_isolation: 'READ-COMMITTED'
 
       visibility:
-        driver: "cassandra"
+        driver: "sql"
 
         cassandra:
           hosts: []
@@ -145,11 +145,11 @@ server:
 
         sql:
           driver: "mysql"
-          host: "mysql"
+          host: "temporalmysql.mysql.database.azure.com"
           port: 3306
           database: "temporal_visibility"
-          user: "temporal"
-          password: "temporal"
+          user: "test"
+          password: "Sree@1628888"
           existingSecret: ""
           secretName: ""
           maxConns: 20
@@ -398,7 +398,7 @@ grafana:
          datasource: TemporalMetrics
 
 cassandra:
-  enabled: true
+  enabled: false
   persistence:
     enabled: false
   image:
@@ -417,4 +417,4 @@ cassandra:
     type: ClusterIP
 
 mysql:
-  enabled: false
+  enabled: true
